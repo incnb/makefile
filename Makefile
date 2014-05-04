@@ -61,7 +61,7 @@ $(CLEAN):
 
 $(DISTCLEAN): $(CLEAN)
 	$(QUIET) rm -rf $(OBJ_DIR) $(wildcard $(TARGET)-*.tar.gz)
-	$(QUIET) rm -f ChangeLog.txt
+	$(QUIET) rm -f $(CHANGELOG)
 
 $(REBUILD):  $(CLEAN) $(TARGET)
 $(DREBUILD): $(CLEAN) $(DEBUG)
