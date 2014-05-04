@@ -26,7 +26,7 @@ for non-c project will be easier.
 ```bash
 $ mkdir project && cd project
 $ git clone https://www.github.com/inickey/makefile/ ./ && git init
-$ cat Makefile | sed 's/makefile/project/g' > Makefile
+$ sed 's/makefile/project/g' Makefile -i
 $ git add -A && git commit -m 'initial commit' && git tag v0.0
 ```
 
