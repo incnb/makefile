@@ -14,6 +14,8 @@ Features:
 - Auto ChangeLog.txt generation from git history
 - Simple debug building(with gdb flags)
 - CMake-like build output
+- Prepared .gitignore for C, Emacs and Vim from
+  [this](https://github.com/github/gitignore) github gitignore repo.
 
 ---
 
