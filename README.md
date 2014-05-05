@@ -29,7 +29,6 @@ for non-c project will be easier.
 $ mkdir helloworld && cd helloworld
 $ git clone https://www.github.com/inickey/makefile/ ./
 $ rm -rf .git && git init
-$ sed 's/makefile/helloworld/g' Makefile -i
 $ git add -A && git commit -m 'initial commit' && git tag v0.0
 ```
 

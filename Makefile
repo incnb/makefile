@@ -1,4 +1,4 @@
-PACKAGE    = makefile
+PACKAGE    = $(shell basename $(shell pwd))
 LIBS       = 
 VERSION    = $(shell ./version.sh)
 ADD_CFLAGS =
