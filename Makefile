@@ -1,4 +1,4 @@
-TARGET     = makefile
+PACKAGE    = makefile
 LIBS       = 
 VERSION    = $(shell ./version.sh)
 ADD_CFLAGS =
@@ -27,6 +27,7 @@ OBJECTS    = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
 QUIET      = @
 
 ALL        = all
+TARGET     = $(PACKAGE)
 DEBUG      = debug
 REBUILD    = rebuild
 DREBUILD   = drebuild
