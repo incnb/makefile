@@ -40,7 +40,7 @@ $(ALL): $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(QUIET) echo "  LD	$@"
-	$(QUIET) $(CC) $(LFLAGS) $^ -o $@
+	$(QUIET) $(CC) $^ $(LFLAGS) -o $@
 
 $(DEBUG): CFLAGS += $(DBG_CFLAGS)
 $(DEBUG): LFLAGS += $(DBG_LFLAGS)
