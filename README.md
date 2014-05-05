@@ -17,16 +17,19 @@ Features:
 
 ---
 
+<sub>
 This makefile can be used out-of-the-box only for c-projects and actually I
 don't think it is expedient to make any changes in it, write new Makefile
 for non-c project will be easier.
+</sub>
 
 ## How to use it?
 
 ```bash
-$ mkdir project && cd project
-$ git clone https://www.github.com/inickey/makefile/ ./ && git init
-$ sed 's/makefile/project/g' Makefile -i
+$ mkdir helloworld && cd helloworld
+$ git clone https://www.github.com/inickey/makefile/ ./
+$ rm -rf .git && git init
+$ sed 's/makefile/helloworld/g' Makefile -i
 $ git add -A && git commit -m 'initial commit' && git tag v0.0
 ```
 
@@ -46,13 +49,16 @@ History in ChangeLog.txt will be cleaned with every new tag.
 You just should paste any *.c and *.h files in root directory, make will
 search every source file, compile it and then link all files together to
 $(TARGET) property of makefile. If you use any libraries(for example
-glib-2.0) you should paste it to LIBS property of makefile
+glib-2.0 and sqlite3) you should paste it to LIBS property of makefile,
+separated with spaces.
 ```Makefile
-LIBS = glib-2.0
+LIBS = glib-2.0 sqlite3
 ```
 
 ---
 
+<sub>
 Actually I use it only for beginning some new projects that I don't know
 will complete or support(but there's some exceptions of this rule).
 Usually later I changing it Makefile for GNU Autotools.
+</sub>
