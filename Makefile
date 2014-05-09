@@ -13,7 +13,7 @@ PKG_LFLAGS = $(shell $(PKG) $(LIBS) --libs)
 DBG_CFLAGS = -ggdb -g -DDEBUG -Wall
 DBG_LFLAGS = -ggdb -g -Wall
 CFLAGS     = $(ADD_CFLAGS) $(PKG_CFLAGS) \
-             -DVERSION=$(VERSION)
+             -DVERSION=$(VERSION) -DPACKAGE=$(PACKAGE)
 LFLAGS     = $(ADD_LFLAGS) $(PKG_LFLAGS)
 
 OBJ_DIR    = .obj/
