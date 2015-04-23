@@ -98,6 +98,11 @@ $(DIST):
 
 $(INSTALL):
 	$(QUIET) echo "Installing $(TARGET)..."
-	$(QUIET) ./install.sh --target $(TARGET) --version $(VERSION) --prefix "$(PREFIX)" --dest-dir "$(DESTDIR)"
+	$(QUIET) ./install.sh --target "$(TARGET)" --version "$(VERSION)" --prefix "$(PREFIX)" --dest-dir "$(DESTDIR)"
+
+$(UNINSTALL):
+	$(QUIET) echo "Uninstalling $(TARGET)..."
+	$(QUIET) ./uninstall.sh --target "$(TARGET)" --version "$(VERSION)" --prefix "$(PREFIX)" --dest-dir "$(DESTDIR)"
+
 
 include $(wildcard $(OBJ_DIR)/*.d)
