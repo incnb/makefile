@@ -9,8 +9,14 @@ EXTRA_DIST =
 CC         = $(shell which cc)
 PKG        = $(shell which pkg-config)
 
+ifneq ($(strip $(LIBS)),)
 PKG_CFLAGS = $(shell $(PKG) $(LIBS) --cflags)
 PKG_LFLAGS = $(shell $(PKG) $(LIBS) --libs)
+else
+PKG_CFLAGS =
+PKG_LFLAGS =
+endif
+
 DBG_CFLAGS = -ggdb -g -DDEBUG -Wall
 DBG_LFLAGS = -ggdb -g -Wall
 CFLAGS     = $(ADD_CFLAGS) $(PKG_CFLAGS) \
