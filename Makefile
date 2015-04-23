@@ -46,6 +46,7 @@ CLEAN      = clean
 CHANGELOG  = ChangeLog.txt
 DISTCLEAN  = distclean
 DIST       = dist
+DDIST      = dailydist
 INSTALL    = install
 
 $(ALL): $(TARGET)
@@ -85,10 +86,22 @@ $(CHANGELOG):
 	fi
 	$(QUIET) echo "" >> $@
 
-$(DIST): DIST_NAME = $(TARGET)-$(VERSION)-$(shell date +%d%m%y).tar.gz
+$(DIST): DIST_NAME = $(TARGET)-$(VERSION).tar.gz
 $(DIST): CURR_PWD  = $(shell pwd)
 $(DIST): $(CHANGELOG)
 $(DIST):
+	$(QUIET) echo "Making $(DIST_NAME)"
+	$(QUIET) mkdir $(CURR_PWD)/dist/$(TARGET) -p
+	$(QUIET) cp $(DIST_FILES) $(CURR_PWD)/dist/$(TARGET) -f
+	$(QUIET) cd $(CURR_PWD)/dist/ && \
+                 tar -czvf $(DIST_NAME) $(TARGET) > /dev/null
+	$(QUIET) mv $(CURR_PWD)/dist/$(DIST_NAME) $(CURR_PWD) && \
+                 rm -rf dist
+
+$(DDIST): DIST_NAME = $(TARGET)-$(VERSION)-$(shell date +%d%m%y).tar.gz
+$(DDIST): CURR_PWD  = $(shell pwd)
+$(DDIST): $(CHANGELOG)
+$(DDIST):
 	$(QUIET) echo "Making $(DIST_NAME)"
 	$(QUIET) mkdir $(CURR_PWD)/dist/$(TARGET) -p
 	$(QUIET) cp $(DIST_FILES) $(CURR_PWD)/dist/$(TARGET) -f
