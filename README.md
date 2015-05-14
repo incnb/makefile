@@ -28,10 +28,9 @@ for non-c project will be easier.
 ## How to use it?
 
 ```bash
-$ mkdir helloworld && cd helloworld
-$ git clone https://www.github.com/inickey/makefile/ ./
-$ rm -rf .git && git init
-$ git add -A && git commit -m 'initial commit' && git tag v0.0
+$ git clone https://github.com/inickey/makefile helloworld
+$ cd helloworld
+$ make init
 ```
 
 ## How to version?

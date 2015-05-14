@@ -48,6 +48,7 @@ DISTCLEAN  = distclean
 DIST       = dist
 DDIST      = dailydist
 INSTALL    = install
+INIT       = init
 
 $(ALL): $(TARGET)
 
@@ -65,7 +66,7 @@ $(OBJ_DIR)/%.o: %.c
 	$(QUIET) $(CC) -c $< $(CFLAGS) -o $@ -MMD
 
 .PHONY: $(CLEAN) $(DISTCLEAN) $(DIST) $(REBUILD) $(DREBUILD) $(INSTALL) \
-        $(CHANGELOG)
+        $(CHANGELOG) $(INIT)
 
 $(CLEAN):
 	$(QUIET) rm -f $(wildcard $(OBJ_DIR)/*.d)
@@ -118,5 +119,14 @@ $(UNINSTALL):
 	$(QUIET) echo "Uninstalling $(TARGET)..."
 	$(QUIET) ./uninstall.sh --target "$(TARGET)" --version "$(VERSION)" --prefix "$(PREFIX)" --dest-dir "$(DESTDIR)"
 
+# #RAI - Remove After Init, will be automatically removed after 'make init' executing
+$(INIT):                                                               #RAI
+	$(QUIET) rm -rf .git                                           #RAI
+	$(QUIET) git init                                              #RAI
+	$(QUIET) git add -A && git commit -am 'initial commit(empty)'  #RAI
+	$(QUIET) git tag v0.0                                          #RAI
+	$(QUIET) echo "" > AUTHORS                                     #RAI
+	$(QUIET) echo "" > README.md                                   #RAI
+	$(QUIET) sed -i '/#RAI/d' Makefile                             #RAI
 
 include $(wildcard $(OBJ_DIR)/*.d)
