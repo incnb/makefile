@@ -23,7 +23,7 @@ PREFIX ?= $(DESTDIR)
 DBG_CFLAGS = -ggdb -g -DDEBUG -Wall
 DBG_LFLAGS = -ggdb -g -Wall
 CFLAGS     = $(ADD_CFLAGS) $(PKG_CFLAGS) \
-             -DVERSION=\"$(VERSION)\" -DPACKAGE=\"$(PACKAGE)\"
+             -DVERSION=\"$(VERSION)\" -DPACKAGE=\"$(PACKAGE)\" \
              -DPREFIX=\"$(PREFIX)\" -DDESTDIR=\"$(DESTDIR)\"
 LFLAGS     = $(ADD_LFLAGS) $(PKG_LFLAGS)
 
