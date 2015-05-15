@@ -123,10 +123,12 @@ $(UNINSTALL):
 $(INIT):                                                               #RAI
 	$(QUIET) rm -rf .git                                           #RAI
 	$(QUIET) git init                                              #RAI
-	$(QUIET) git add -A && git commit -am 'initial commit(empty)'  #RAI
-	$(QUIET) git tag v0.0                                          #RAI
 	$(QUIET) echo "" > AUTHORS                                     #RAI
 	$(QUIET) echo "" > README.md                                   #RAI
+	$(QUIET) echo "\n\n# Project-specific" >> .gitignore           #RAI
+	$(QUIET) echo "$(TARGET)" >> .gitignore                        #RAI
 	$(QUIET) sed -i '/#RAI/d' Makefile                             #RAI
+	$(QUIET) git add -A && git commit -am 'initial commit(empty)'  #RAI
+	$(QUIET) git tag v0.0                                          #RAI
 
 include $(wildcard $(OBJ_DIR)/*.d)
